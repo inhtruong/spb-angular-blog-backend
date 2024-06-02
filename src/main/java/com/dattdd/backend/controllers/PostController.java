@@ -24,16 +24,37 @@ public class PostController {
 		this.postService = postService;
 	}
 
+	/**
+	 * Retrieves a list of all PostDTO objects from the postService.
+	 *
+	 * @return         	A ResponseEntity containing a list of PostDTO objects.
+	 *                 	The HTTP status code is set to 200 (OK) if the list is not empty.
+	 *                 	Otherwise, a 204 (No Content) status code is returned.
+	 */
 	@GetMapping
 	public ResponseEntity<List<PostDTO>> findAll() {
 		return ResponseEntity.ok(postService.findAll());
 	}
 	
+	/**
+	 * Retrieves a PostDTO object by its ID from the postService.
+	 *
+	 * @param  id  the UUID of the PostDTO object to retrieve
+	 * @return     a ResponseEntity containing the PostDTO object if found,
+	 *             or a 404 Not Found status code if not found
+	 */
 	@GetMapping("/{id}")
 	public ResponseEntity<PostDTO> findById(@PathVariable final UUID id) {
 		return ResponseEntity.ok(postService.findById(id));
 	}
 	
+	/**
+	 * Creates a new PostDTO object using the provided data and returns its UUID.
+	 *
+	 * @param  postDTO	the data for the new PostDTO object
+	 * @return         	a ResponseEntity containing the UUID of the created PostDTO object
+	 *                 	with a HTTP status code of CREATED (201)
+	 */
 	@PostMapping
 	public ResponseEntity<UUID> create(@RequestBody PostDTO postDTO) {
 		UUID id = postService.create(postDTO);
