@@ -102,7 +102,7 @@ public class PostServiceImpl implements IPostService {
 		postDTO.setTitle(post.getTitle());
 		postDTO.setContent(post.getContent());
 		postDTO.setTags(post.getTags());
-		postDTO.setCreateDate(post.getCreateDate());
+		postDTO.setCreatedDate(post.getCreatedDate());
 		postDTO.setCreatedBy(post.getCreatedBy());
 		postDTO.setModifiedDate(post.getModifiedDate());
 		postDTO.setModifiedBy(post.getModifiedBy());
@@ -122,7 +122,7 @@ public class PostServiceImpl implements IPostService {
 		post.setTitle(postDTO.getTitle());
 		post.setContent(postDTO.getContent());
 		post.setTags(postDTO.getTags());
-		post.setCreateDate(postDTO.getCreateDate());
+		post.setCreatedDate(postDTO.getCreatedDate());
 		post.setCreatedBy(postDTO.getCreatedBy());
 		post.setModifiedDate(postDTO.getModifiedDate());
 		post.setModifiedBy(postDTO.getModifiedBy());

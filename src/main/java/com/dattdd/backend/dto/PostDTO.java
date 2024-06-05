@@ -11,7 +11,7 @@ public class PostDTO {
 	private String title;
 	private String content;
 	private Set<String> tags = new HashSet<>();
-	private LocalDateTime createDate;
+	private LocalDateTime createdDate;
 	private UUID createdBy;
 	private LocalDateTime modifiedDate;
 	private UUID modifiedBy;
@@ -21,14 +21,14 @@ public class PostDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PostDTO(UUID id, String title, String content, Set<String> tags, LocalDateTime createDate, UUID createdBy,
+	public PostDTO(UUID id, String title, String content, Set<String> tags, LocalDateTime createdDate, UUID createdBy,
 			LocalDateTime modifiedDate, UUID modifiedBy) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.content = content;
 		this.tags = tags;
-		this.createDate = createDate;
+		this.createdDate = createdDate;
 		this.createdBy = createdBy;
 		this.modifiedDate = modifiedDate;
 		this.modifiedBy = modifiedBy;
@@ -66,12 +66,12 @@ public class PostDTO {
 		this.tags = tags;
 	}
 
-	public LocalDateTime getCreateDate() {
-		return createDate;
+	public LocalDateTime getCreatedDate() {
+		return createdDate;
 	}
 
-	public void setCreateDate(LocalDateTime createDate) {
-		this.createDate = createDate;
+	public void setCreatedDate(LocalDateTime createdDate) {
+		this.createdDate = createdDate;
 	}
 
 	public UUID getCreatedBy() {

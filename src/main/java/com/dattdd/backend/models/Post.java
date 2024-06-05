@@ -9,11 +9,13 @@ import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -22,6 +24,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "posts")
+@EntityListeners(AuditingEntityListener.class)
 public class Post {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
@@ -37,7 +40,7 @@ public class Post {
 	
 	@CreatedDate
 	@Column(updatable = false)
-	private LocalDateTime createDate;
+	private LocalDateTime createdDate;
 	
 	@CreatedBy
 	@Column(updatable = false)
@@ -57,14 +60,14 @@ public class Post {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Post(UUID id, String title, String content, Set<String> tags, LocalDateTime createDate, UUID createdBy,
+	public Post(UUID id, String title, String content, Set<String> tags, LocalDateTime createdDate, UUID createdBy,
 			LocalDateTime modifiedDate, UUID modifiedBy, Set<Like> likes) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.content = content;
 		this.tags = tags;
-		this.createDate = createDate;
+		this.createdDate = createdDate;
 		this.createdBy = createdBy;
 		this.modifiedDate = modifiedDate;
 		this.modifiedBy = modifiedBy;
@@ -103,12 +106,12 @@ public class Post {
 		this.tags = tags;
 	}
 
-	public LocalDateTime getCreateDate() {
-		return createDate;
+	public LocalDateTime getCreatedDate() {
+		return createdDate;
 	}
 
-	public void setCreateDate(LocalDateTime createDate) {
-		this.createDate = createDate;
+	public void setCreatedDate(LocalDateTime createdDate) {
+		this.createdDate = createdDate;
 	}
 
 	public UUID getCreatedBy() {
